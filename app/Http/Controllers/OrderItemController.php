@@ -69,7 +69,7 @@ class OrderItemController extends Controller
                 $order_update->sub_total += $order_item->total;
                 $order_update->total_price += ($order_item->total + $order_update->shipping_price - $order_update->discount);
                 $order_update->save();
-                return redirect('/order');
+                return redirect('order.index');
             }
         }
 
@@ -141,7 +141,7 @@ class OrderItemController extends Controller
         $product->order->sub_total = ($product->order->sub_total - $product->product_price + $product->total);
         $product->order->total_price = ($product->order->total_price - $product->product_price + $product->total);
         $product->order->save();
-        return redirect('/order.index');
+        return redirect('order.index');
     }
 
     /**
